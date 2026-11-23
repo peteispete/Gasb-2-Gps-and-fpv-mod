@@ -1,0 +1,142 @@
+================================================================================
+GASB TWO LONG-RANGE FPV — COMPONENTS, WEIGHT, LAYOUT, WIRING & INAV CLI
+================================================================================
+
+1. COMPONENTS & PRICES
+--------------------------------------------------------------------------------
+Flight Controller : SpeedyBee / CoreWing F405 Wing APP V2         (~$67.18 - $69.99)
+                    * Built-in 6-axis gyro/IMU + barometer + OSD (BAYCKRC RX
+                      has no gyro; FC handles all stabilization & mixing)
+FPV Camera        : Caddx Ratel 2 (19mm, 2.1mm lens, 1200TVL)    (~$30.99 - $37.49)
+Video Transmitter : RUSHFPV Rush Tank Solo 1.6W (5.8GHz 48CH)    (~$45.98 - $79.99)
+VTX & Goggle Omni : RUSHFPV Cherry 2 Ultra Extended RHCP SMA (x2) (~$16.99 - $19.00)
+Goggle Patch Ant. : Maple Wireless 5.8GHz 11dBi RHCP Patch SMA   (~$27.39)
+GPS + Compass     : HGLRC M100 Pro GPS (120-Ch + QMC5883L)       (~$19.99)
+FPV Goggles       : Eachine EV800D + SMA-to-RP-SMA Adapters      (~$165.99 - $167.99)
+RC Launcher       : Commercial RC Bungee Launch System           (~$28.31 - $71.99)
+RC Receiver       : BAYCKRC ELRS 2.4GHz Nano RX                  (Owned - $0.00)
+RC Transmitter    : RadioMaster Pocket (ELRS 2.4GHz)             (Owned - $0.00)
+Airframe & Power  : GASB Two + 3S 2200mAh 100C + 50A ESC + 3x 9g (Owned - $0.00)
+--------------------------------------------------------------------------------
+Estimated Total (New Purchases): $405.62 - $494.96
+
+
+2. WEIGHT BUDGET (ALL-UP WEIGHT / AUW)
+--------------------------------------------------------------------------------
+- SpeedyBee F405 Wing APP V2 (with headers/case)   : ~35.0g
+- RUSHFPV Rush Tank Solo 1.6W VTX + pigtail        : ~16.0g
+- RUSHFPV Cherry 2 Ultra Extended RHCP SMA         : ~11.5g
+- HGLRC M100 Pro GPS + Compass                     :  ~7.9g
+- Caddx Ratel 2 (19mm Camera)                      :  ~5.9g
+- BAYCKRC ELRS 2.4GHz Nano RX + T-antenna          :  ~2.5g
+- Harnesses, solder, heatshrink & mounting tape    : ~15.0g
+  --> Total Added FPV & Autopilot Weight           : ~93.8g (3.31 oz)
+
+- Base Gear (3S 2200mAh 185g + 50A ESC 45g + EDF/Motor 95g + 3x Servos 36g): ~361.0g
+- Total Flying AUW (Thin-Wall PLA ~333g frame)     : ~788g  (1.74 lbs)
+- Total Flying AUW (Heavy PETG/Bambu ~585g frame)  : ~1,040g (2.29 lbs)
+
+
+3. GASB TWO NOSE-TO-TAIL LAYOUT
+--------------------------------------------------------------------------------
+[NOSE]
+ ├── Caddx Ratel 2 (19mm) ──────> Nose/canopy FPV pod (unobstructed view)
+ ├── Canard Servo (S4) ─────────> Forward bay driving front canard
+ ├── Bungee Tow Hook ───────────> Underside forward fuselage (ahead of CG)
+ ├── 3S 2200mAh 100C LiPo ──────> Main forward/mid battery bay (slide for CG)
+ ├── HGLRC M100 Pro GPS ────────> Top of mid-fuselage hatch, patch UP (3–4"+ ahead of VTX)
+ ├── SpeedyBee F405 Wing V2 ────> Center bay near CG (68mm behind wing joint)
+ ├── BAYCKRC ELRS 2.4G RX ──────> Side wall of mid-bay, T-antenna vertical
+ ├── Rush Tank Solo 1.6W VTX ───> Rear hatch, CNC heatsink exposed + Cherry 2 RHCP SMA
+ ├── Wing Elevon Servos (S2/S3) > Left & Right main wing bays
+ └── 50A ESC + Motor/EDF ───────> Rear duct/tail bay in cooling airflow
+[TAIL]
+
+
+4. WIRING DIAGRAM & BEC REMINDERS
+--------------------------------------------------------------------------------
+                       +--------------------------------------+
+                       |    3S 2200mAh 100C LiPo (11.1V-12.6V) |
+                       +------------------+-------------------+
+                                          | XT60
+                       +------------------v-------------------+
+                       |      SpeedyBee F405 Wing APP V2      |
+                       |  (BAT+ / BAT- Main Power Input Pads) |
+                       +--+-----+------+-------+------+-----+-+
+                          |     |      |       |      |     |
+    +---------------------+     |      |       |      |     +----------------------+
+    v (BAT+ / BAT- / S1)        v      v       v      v (UART2)                    v (GPS/I2C)
++-------------------+     +---------+  |  +---------+ +------------------+  +--------------------+
+| 50A ESC (5V/3A)   │     |3x Servos|  |  |Caddx    | |BAYCKRC ELRS 2.4G |  |HGLRC M100 Pro GPS  |
+| * Heavy +/- to BAT|     |* S2: L  |  |  |Ratel 2  | |* 4V5 ---> 5V     |  |* 4V5 ---> 5V       |
+| * S1  ---> Signal |     |* S3: R  |  |  |* 5V/9V  | |* GND ---> GND    |  |* GND ---> GND      |
+| * GND ---> GND    |     |* S4: Cnd|  |  |* GND    | |* TX2 ---> RX     |  |* RX6 ---> TX       |
+| * RED 5V: REMOVE! |     |* Jumper:|  |  |* CAM    | |* RX2 ---> TX     |  |* TX6 ---> RX       |
++---------+---------+     |  5V/6V  |  |  +---------+ +------------------+  |* SDA/SCL -> SDA/SCL|
+          |               +---------+  |                                    +--------------------+
+          v                            v (VTX Pads: 9V/12V, GND, VTX, TX1)
+   [3-Phase Motor]        +--------------------------------------------+
+                          | RUSHFPV Rush Tank Solo 1.6W VTX            |
+                          | * Jumper: 9V (keeps voltage steady on 3S)  |
+                          | * TX1 ---> SmartAudio (control power/ch)   |
+                          | * MMCX-to-SMA ---> RUSH Cherry 2 RHCP Omni |
+                          +--------------------------------------------+
+
+*** CRITICAL BEC REMINDERS ***
+1. REMOVE ESC RED 5V WIRE AT S1: Pull the middle red wire out of the 50A ESC's
+   3-pin servo plug and cover it with heatshrink. Only Signal and Ground go to S1.
+   (Leaving the ESC's 5V/3A BEC connected will fight the FC's internal BEC.)
+2. VTX BEC JUMPER = 9V: Set the FC's VTX BEC jumper to 9V so 3S voltage sag under
+   full throttle never browns out the Rush Tank Solo 1.6W VTX.
+3. SERVO BEC JUMPER (Vx) = 5V or 6V: Match your 3 servos' rated voltage.
+
+
+5. INAV CLI CONFIGURATION (CANARD + ELEVONS + AUTOLAUNCH)
+--------------------------------------------------------------------------------
+# --- 1. SERIAL PORTS (UART1=SmartAudio, UART2=ELRS RX, UART6=GPS) ---
+serial 0 2048 115200 115200 0 115200
+serial 1 64 115200 115200 0 115200
+serial 5 2 115200 115200 0 115200
+
+# --- 2. RECEIVER, GPS & COMPASS ---
+set receiver_type = SERIAL
+set serialrx_provider = CRSF
+feature GPS
+set gps_provider = UBLOX
+set gps_sbas_mode = AUTO
+set mag_hardware = QMC5883
+set align_mag = CW270FLIP
+
+# --- 3. MOTOR & SERVO MIXER (S1=Motor, S2=Left Elevon, S3=Right Elevon, S4=Canard) ---
+mmix reset
+mmix 0 1.000 0.000 0.000 0.000
+
+smix reset
+# S2 (Servo 1) = Left Wing Elevon (Roll + Pitch)
+smix 0 1 0 100 0
+smix 1 1 1 100 0
+# S3 (Servo 2) = Right Wing Elevon (Roll + Pitch)
+smix 2 2 0 100 0
+smix 3 2 1 -100 0
+# S4 (Servo 3) = Front Canard (Pitch Only — moves opposite rear elevons)
+smix 4 3 1 -100 0
+
+# --- 4. VTX SMARTAUDIO, BUNGEE AUTOLAUNCH & FAILSAFE RTH ---
+set vtx_band = 5
+set vtx_channel = 1
+set vtx_power = 4
+set nav_fw_launch_velocity = 300
+set nav_fw_launch_accel = 1863
+set nav_fw_launch_max_angle = 45
+set nav_fw_launch_motor_delay = 500
+set nav_fw_launch_spinup_time = 100
+set nav_fw_launch_min_time = 0
+set nav_fw_launch_timeout = 5000
+set nav_fw_launch_max_altitude = 5000
+set nav_fw_launch_climb_angle = 18
+set nav_fw_launch_thr = 1700
+set nav_fw_launch_idle_thr = 1000
+set failsafe_procedure = RTH
+
+save
+================================================================================
