@@ -42,7 +42,7 @@ GASB TWO NOSE-TO-TAIL LAYOUT
 [TAIL]
 
 
-WIRING DIAGRAM & BEC REMINDERS
+WIRING DIAGRAM
 --------------------------------------------------------------------------------
                        ┌──────────────────────────────────────┐
                        │    3S 2200mAh 100C LiPo (11.1V-12.6V) │
@@ -71,7 +71,7 @@ WIRING DIAGRAM & BEC REMINDERS
                           │ • MMCX-to-SMA ──► TrueRC Singularity RHCP  │
                           └────────────────────────────────────────────┘
 
-*** CRITICAL BEC & POWER REMINDERS ***
+BEC & POWER REMINDERS
 1. REMOVE THE ESC'S MIDDLE RED 5V WIRE AT S1: Your 50A ESC has a built-in 5V/3A BEC,
    and the CoreWing F405 Wing MINI V2 has its own onboard BECs. Pull the red wire out
    of the ESC's 3-pin servo plug and insulate it with heatshrink so only Signal and
