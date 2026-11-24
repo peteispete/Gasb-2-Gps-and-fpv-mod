@@ -1,49 +1,38 @@
-WEIGHT BUDGET (ALL-UP WEIGHT / AUW)
---------------------------------------------------------------------------------
-A. AIRFRAME & STRUCTURAL HARDWARE (From Bambu Studio Slicer)
-- 3D-Printed Model Filament (PLA 1: 583.33g + PLA 2: 62.21g) : 645.54g
-  (Note: 1.45g support material removed after printing)
-- CA / Superglue Used for Assembly                           : ~20.00g
-- Carbon Fiber Spar Rods                                     : ~15.00g
-  --> Total Assembled Airframe Weight                        : ~680.54g (1.50 lbs)
+WEIGHT
+3D Printed Model Filament 645.54g
+CA / Superglue Used for Assembly~20.00g
+Carbon Fiber Spar Rods~15.00g
+CoreWing F405 Wing MINI V2 (with soldered S1 S4 headers)~18.00g
+RUSHFPV Rush Max SOLO 2.5W VTX + MMCX pigtail ~20.00g
+TrueRC Singularity 5.8GHz SMA Long RHCP Antenna ~11.00g
+HGLRC M100 Pro GPS + QMC5883L Compass ~7.90g
+CaddxFPV Ratel 2 (19mm Camera)~5.90g
+BAYCKRC ELRS 2.4GHz Nano RX + T antenna ~2.50g
+Harnesses, solder, heatshrink & mounting tape ~15.00g
+Total Added FPV & Autopilot Weight ~80.30g 
+3S 2200mAh 100C LiPo ~185g
+50A ESC ~45g
+50mm EDF/Motor ~95g 
+3x 9g Servos ~36g 
 
-B. ADDED FPV & AUTOPILOT ELECTRONICS
-- CoreWing F405 Wing MINI V2 (with soldered S1-S4 headers)   : ~18.00g
-- RUSHFPV Rush Max SOLO 2.5W VTX + MMCX pigtail              : ~20.00g
-- TrueRC Singularity 5.8GHz SMA Long RHCP Antenna            : ~11.00g
-- HGLRC M100 Pro GPS + QMC5883L Compass                      : ~7.90g
-- CaddxFPV Ratel 2 (19mm Camera)                             : ~5.90g
-- BAYCKRC ELRS 2.4GHz Nano RX + T-antenna                    : ~2.50g
-- Harnesses, solder, heatshrink & mounting tape              : ~15.00g
-  --> Total Added FPV & Autopilot Weight                     : ~80.30g (2.83 oz)
-
-C. BASE POWER & CONTROL GEAR
-- 3S 2200mAh 100C LiPo (~185g) + 50A ESC (~45g) +
-  50mm EDF/Motor (~95g) + 3x 9g Servos (~36g)                : ~361.00g
-
-D. TOTAL FLYING ALL-UP WEIGHT (AUW)
-- Complete Ready-to-Fly AUW (Airframe + Base Gear + FPV)     : ~1,121.84g (2.47 lbs)
+~1,121.84g
 
 
-
-GASB TWO NOSE-TO-TAIL LAYOUT
---------------------------------------------------------------------------------
-[NOSE]
- ├── Caddx Ratel 2 (19mm)       ──► Nose/canopy FPV pod (unobstructed forward view)
- ├── Canard Servo (S4)          ──► Forward bay driving front canard
- ├── Jetapult Tow Hook Block    ──► Glued into underside forward fuselage (ahead of CG)
- ├── 3S 2200mAh 100C LiPo       ──► Main forward/mid battery bay (slide fore/aft for CG)
- ├── HGLRC M100 Pro GPS         ──► Top of mid-fuselage hatch, patch UP (3-4"+ ahead of VTX)
- ├── CoreWing F405 Wing MINI V2 ──► Center bay near CG (~68mm behind wing-fuselage joint)
- ├── BAYCKRC ELRS 2.4G RX       ──► Side wall of mid-bay, T-antenna vertical & clear of wires
- ├── Rush Max SOLO 2.5W VTX     ──► Rear hatch w/ cooling fan/fin exposed + TrueRC RHCP SMA
- ├── Wing Elevon Servos (S2/S3) ──► Left & Right main wing bays
- └── 50A ESC (5V/3A) + EDF/Motor──► Rear duct/tail bay in cooling airflow
-[TAIL]
+GASB TWO NOSE TO TAIL LAYOUT
+Caddx Ratel 2 (19mm)
+Canard Servo (S4) 
+3S 2200mAh 100C LiPo 
+HGLRC M100 Pro GPSTop of mid fuselage hatch, patch UP (3 4"+ ahead of VTX)
+CoreWing F405 Wing MINI V2 ~68mm behind wing fuselage joint)
+BAYCKRC ELRS 2.4G RX T antenna vertical
+Rush Max SOLO 2.5W VTX+ TrueRC RHCP SMA
+Wing Elevon servo
+50A ESC 
+EDF
 
 
 WIRING DIAGRAM
---------------------------------------------------------------------------------
+
                        ┌──────────────────────────────────────┐
                        │    3S 2200mAh 100C LiPo (11.1V-12.6V) │
                        └──────────────────┬───────────────────┘
@@ -64,77 +53,16 @@ WIRING DIAGRAM
 └─────────┬─────────┘     │  5V/6V  │ │  └─────────┘ └──────────────────┘  │• SDA/SCL ─► SDA/SCL│
           │               └─────────┘ │                                    └────────────────────┘
           ▼                           ▼ (VTX Pads: 9V, GND, VTX, TX1/TX3 SmartAudio)
-   [3-Phase Motor]        ┌────────────────────────────────────────────┐
-                          │ RUSHFPV Rush Max SOLO 2.5W VTX             │
-                          │ • VTX BEC Jumper: 9V (steady on 3S LiPo)   │
-                          │ • SmartAudio ──► TX1/TX3 (check Mini card) │
-                          │ • MMCX-to-SMA ──► TrueRC Singularity RHCP  │
-                          └────────────────────────────────────────────┘
+   [3-Phase Motor]        ----------------------------------------------
+                          [ RUSHFPV Rush Max SOLO 2.5W VTX             ]
+                          [ VTX BEC Jumper: 9V (steady on 3S LiPo)     ]
+                          [ SmartAudio ──► TX1/TX3 (check Mini card)   ]
+                          [ MMCX-to-SMA ──► TrueRC Singularity RHCP    ]
+                          ----------------------------------------------
 
-BEC & POWER REMINDERS
-1. REMOVE THE ESC'S MIDDLE RED 5V WIRE AT S1: Your 50A ESC has a built-in 5V/3A BEC,
-   and the CoreWing F405 Wing MINI V2 has its own onboard BECs. Pull the red wire out
-   of the ESC's 3-pin servo plug and insulate it with heatshrink so only Signal and
-   Ground connect to S1—otherwise the two 5V regulators will fight and fry the board.
-2. SET VTX BEC JUMPER TO 9V: A 3S battery sags to ~10.2V under full throttle; 9V
-   regulated keeps the Rush Max SOLO 2.5W steady without brownouts.
-3. SET SERVO BEC JUMPER TO 5V (or 6V only if your 3 servos are rated for 6V).
-4. NEVER POWER THE 2.5W VTX WITHOUT THE ANTENNA ATTACHED: Leave VTX in PIT/25mW on
-   the bench and ensure cooling airflow over the top fan/heatsink.
-5. UNLOCK US-VERSION VTX: Hold both buttons on the Rush Max SOLO for 3-5 seconds
-   (or load the unlocked SmartAudio 2.1 VTX table in INAV) to unlock 48CH / 2.5W.
-
-
-INAV CLI CONFIGURATION (CANARD + ELEVONS + AUTOLAUNCH)
---------------------------------------------------------------------------------
-# Note: Verify the VTX SmartAudio TX pad on the F405 Wing MINI pinout card
-# (serial 0 = UART1 / TX1; change to serial 2 = UART3 / TX3 if wired to TX3).
-
-# --- 1. SERIAL PORTS (UART1=SmartAudio, UART2=ELRS RX, UART6=GPS) ---
-serial 0 2048 115200 115200 0 115200
-serial 1 64 115200 115200 0 115200
-serial 5 2 115200 115200 0 115200
-
-
-# --- 2. RECEIVER, GPS & COMPASS ---
-set receiver_type = SERIAL
-set serialrx_provider = CRSF
-feature GPS
-set gps_provider = UBLOX
-set gps_sbas_mode = AUTO
-set mag_hardware = QMC5883
-set align_mag = CW270FLIP
-
-# --- 3. MOTOR & SERVO MIXER (S1=Motor, S2=Left Elevon, S3=Right Elevon, S4=Canard) ---
-mmix reset
-mmix 0 1.000 0.000 0.000 0.000
-
-smix reset
-# S2 (Servo 1) = Left Wing Elevon (Roll + Pitch)
-smix 0 1 0 100 0
-smix 1 1 1 100 0
-# S3 (Servo 2) = Right Wing Elevon (Roll + Pitch)
-smix 2 2 0 100 0
-smix 3 2 1 -100 0
-# S4 (Servo 3) = Front Canard (Pitch Only — moves opposite rear elevons)
-smix 4 3 1 -100 0
-
-# --- 4. VTX SMARTAUDIO, BUNGEE AUTOLAUNCH & FAILSAFE RTH ---
-set vtx_band = 5
-set vtx_channel = 1
-set vtx_power = 4
-set nav_fw_launch_velocity = 300
-set nav_fw_launch_accel = 1863
-set nav_fw_launch_max_angle = 45
-set nav_fw_launch_motor_delay = 500
-set nav_fw_launch_spinup_time = 100
-set nav_fw_launch_min_time = 0
-set nav_fw_launch_timeout = 5000
-set nav_fw_launch_max_altitude = 5000
-set nav_fw_launch_climb_angle = 18
-set nav_fw_launch_thr = 1700
-set nav_fw_launch_idle_thr = 1000
-set failsafe_procedure = RTH
-
-save
-================================================================================
+REMOVE THE ESC'S MIDDLE RED 5V WIRE AT S1 
+Pull the red wire out of the ESC's 3 pin servo plug and insulate it with heatshrink 
+only Signal and Ground connect to S1 or goes boom
+SET VTX BEC JUMPER TO 9V
+SET SERVO BEC JUMPER TO 5V 
+UNLOCK US VERSION VTX Hold both buttons on the Rush Max SOLO for 3 5 seconds
