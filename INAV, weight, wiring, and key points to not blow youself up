@@ -1,21 +1,4 @@
-GASB TWO LONG-RANGE FPV — COMPONENTS, WEIGHT, LAYOUT, WIRING & INAV CLI
-
-COMPONENTS & PRICES
-
-Flight Controller : SpeedyBee / CoreWing F405 Wing APP V2         ($72)
-FPV Camera        : Caddx Ratel 2 (19mm, 2.1mm lens, 1200TVL)    ($30.99)
-Video Transmitter : RUSHFPV Rush Max SOLO 5.8GHz 2.5W 37CH VTX w/ Smart Audio  ($102.99)
-VTX & Goggle Omni : TrueRC Singularity 5.8 SMA Long Antenna RHCP (x2) ($40)
-Goggle Patch Ant. : VAS Avenger 5.8Ghz 12.5dB Long Range Antenna - RHCP   ($44.95)
-GPS + Compass     : HGLRC M100 Pro GPS (120-Ch + QMC5883L)       ($21.99)
-FPV Goggles       : SKYZONE Cobra X V4 (ev800d is out of stock everywhere, legit versions)     ($292)
-RC Launcher       : Commercial RC Bungee Launch System           ($67.99)
-Prebroughten items: Stuff idk ($254.25)
-Shipping for the prebought stuff: ($91.83) straight from china, cause somehow after all this its still cheaper
-Shipping cost now is $46.54
-Total cost needed $1,035.58
-
-2. WEIGHT BUDGET (ALL-UP WEIGHT / AUW)
+WEIGHT BUDGET (ALL-UP WEIGHT / AUW)
 --------------------------------------------------------------------------------
 A. AIRFRAME & STRUCTURAL HARDWARE (From Bambu Studio Slicer)
 - 3D-Printed Model Filament (PLA 1: 583.33g + PLA 2: 62.21g) : 645.54g
@@ -43,7 +26,7 @@ D. TOTAL FLYING ALL-UP WEIGHT (AUW)
 
 
 
-3. GASB TWO NOSE-TO-TAIL LAYOUT
+GASB TWO NOSE-TO-TAIL LAYOUT
 --------------------------------------------------------------------------------
 [NOSE]
  ├── Caddx Ratel 2 (19mm)       ──► Nose/canopy FPV pod (unobstructed forward view)
@@ -59,8 +42,7 @@ D. TOTAL FLYING ALL-UP WEIGHT (AUW)
 [TAIL]
 
 
-4. WIRING DIAGRAM & BEC REMINDERS
-4. WIRING DIAGRAM & BEC REMINDERS
+WIRING DIAGRAM & BEC REMINDERS
 --------------------------------------------------------------------------------
                        ┌──────────────────────────────────────┐
                        │    3S 2200mAh 100C LiPo (11.1V-12.6V) │
@@ -103,7 +85,7 @@ D. TOTAL FLYING ALL-UP WEIGHT (AUW)
    (or load the unlocked SmartAudio 2.1 VTX table in INAV) to unlock 48CH / 2.5W.
 
 
-5. INAV CLI CONFIGURATION (CANARD + ELEVONS + AUTOLAUNCH)
+INAV CLI CONFIGURATION (CANARD + ELEVONS + AUTOLAUNCH)
 --------------------------------------------------------------------------------
 # Note: Verify the VTX SmartAudio TX pad on the F405 Wing MINI pinout card
 # (serial 0 = UART1 / TX1; change to serial 2 = UART3 / TX3 if wired to TX3).
