@@ -33,32 +33,6 @@ EDF
 
 WIRING DIAGRAM
 
-                       ┌──────────────────────────────────────┐
-                       │    3S 2200mAh 100C LiPo (11.1V-12.6V) │
-                       └──────────────────┬───────────────────┘
-                                          │ XT60
-                       ┌──────────────────▼───────────────────┐
-                       │      CoreWing F405 Wing MINI V2      │
-                       │  (BAT+ / BAT- Main Power Input Pads) │
-                       └──┬─────┬──────┬───────┬──────┬─────┬─┘
-                          │     │      │       │      │     │
-    ┌─────────────────────┘     │      │       │      │     └──────────────────────┐
-    ▼ (BAT+ / BAT- / S1)        ▼      ▼       ▼      ▼ (UART2)                    ▼ (GPS/I2C)
-┌───────────────────┐     ┌─────────┐ │  ┌─────────┐ ┌──────────────────┐  ┌────────────────────┐
-│ 50A ESC (5V/3A)   │     │3x Servos│ │  │Caddx    │ │BAYCKRC ELRS 2.4G │  │HGLRC M100 Pro GPS  │
-│ • Heavy +/- to BAT│     │• S2: L  │ │  │Ratel 2  │ │• 4V5 ──► 5V      │  │• 4V5 ──► 5V        │
-│ • S1  ──► Signal  │     │• S3: R  │ │  │• 5V/9V  │ │• GND ──► GND     │  │• GND ──► GND       │
-│ • GND ──► GND     │     │• S4: Cnd│ │  │• GND    │ │• TX2 ──► RX      │  │• RX6 ──► TX        │
-│ • RED 5V: REMOVE! │     │• Jumper:│ │  │• CAM    │ │• RX2 ──► TX      │  │• TX6 ──► RX        │
-└─────────┬─────────┘     │  5V/6V  │ │  └─────────┘ └──────────────────┘  │• SDA/SCL ─► SDA/SCL│
-          │               └─────────┘ │                                    └────────────────────┘
-          ▼                           ▼ (VTX Pads: 9V, GND, VTX, TX1/TX3 SmartAudio)
-   [3-Phase Motor]        ----------------------------------------------
-                          [ RUSHFPV Rush Max SOLO 2.5W VTX             ]
-                          [ VTX BEC Jumper: 9V (steady on 3S LiPo)     ]
-                          [ SmartAudio ──► TX1/TX3 (check Mini card)   ]
-                          [ MMCX-to-SMA ──► TrueRC Singularity RHCP    ]
-                          ----------------------------------------------
 
 REMOVE THE ESC'S MIDDLE RED 5V WIRE AT S1 
 Pull the red wire out of the ESC's 3 pin servo plug and insulate it with heatshrink 
