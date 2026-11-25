@@ -60,6 +60,52 @@ WIRING DIAGRAM
                           │ • MMCX-to-SMA ──► TrueRC Singularity RHCP  │
                           └────────────────────────────────────────────┘
 
+Inav
+serial 0 2048 115200 115200 0 115200
+serial 1 64 115200 115200 0 115200
+serial 5 2 115200 115200 0 115200
+
+
+set receiver_type = SERIAL
+set serialrx_provider = CRSF
+feature GPS
+set gps_provider = UBLOX
+set gps_sbas_mode = AUTO
+set mag_hardware = QMC5883
+set align_mag = CW270FLIP
+
+mmix reset
+mmix 0 1.000 0.000 0.000 0.000
+
+smix reset
+# S2 (Servo 1) = Left Wing Elevon (Roll + Pitch)
+smix 0 1 0 100 0
+smix 1 1 1 100 0
+# S3 (Servo 2) = Right Wing Elevon (Roll + Pitch)
+smix 2 2 0 100 0
+smix 3 2 1 -100 0
+# S4 (Servo 3) = Front Canard (Pitch Only — moves opposite rear elevons)
+smix 4 3 1 -100 0
+
+# --- 4. VTX SMARTAUDIO, BUNGEE AUTOLAUNCH & FAILSAFE RTH ---
+set vtx_band = 5
+set vtx_channel = 1
+set vtx_power = 4
+set nav_fw_launch_velocity = 300
+set nav_fw_launch_accel = 1863
+set nav_fw_launch_max_angle = 45
+set nav_fw_launch_motor_delay = 500
+set nav_fw_launch_spinup_time = 100
+set nav_fw_launch_min_time = 0
+set nav_fw_launch_timeout = 5000
+set nav_fw_launch_max_altitude = 5000
+set nav_fw_launch_climb_angle = 18
+set nav_fw_launch_thr = 1700
+set nav_fw_launch_idle_thr = 1000
+set failsafe_procedure = RTH
+
+save
+
 REMOVE THE ESC'S MIDDLE RED 5V WIRE AT S1 
 Pull the red wire out of the ESC's 3 pin servo plug and insulate it with heatshrink 
 only Signal and Ground connect to S1 or goes boom
