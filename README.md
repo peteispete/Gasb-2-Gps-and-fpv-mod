@@ -11,3 +11,5 @@ INAV code were made with gemini because i'm code illiterate.
 i found parts and such as well as going to design how to get them in once components get here.
 
 Files cannot be linked because they were purchased from his coffee, https://www.buymeacoffee.com/Carletto73,  i need time to make wiring and stuff, gemini made a wiring diagram but i have no clue if its right so i’m gonna go check it and design off it
+
+files that are given are my own after inspiration from the gasb 2
